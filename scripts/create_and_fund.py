@@ -18,10 +18,6 @@ def main():
 
     safeTxData = get_safe_create_data(GnosisSafeMaster, owners, threshold)
 
-    # Note that as of eth-brownie=1.18.1, if 'as_proxy_for' is not used or
-    # it does not point to the proxy addres, the returning Contract object will
-    # point to the master contract and therefore its methods.
-
     GnosisSafeProxy = interface.IGnosisSafeProxyFactory(
         config["networks"][network.show_active()]["gnosis_proxy_factory"]
     )
