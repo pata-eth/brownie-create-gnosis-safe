@@ -1,0 +1,7 @@
+{
+    "python.formatting.provider": "black",
+    "[python]": {
+        "editor.formatOnSaveMode": "file",
+        "editor.formatOnPaste": false
+    }
+}
