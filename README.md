@@ -73,14 +73,15 @@ SAFE_OWNER_2=<OWNER2_ADDRESS>
 
 ### Updating your Brownie networks config
 
-The following command updates your brownie networks config so that it includes
-all the networks used by this project:
+The following commands add the brownie network configurations needed:
 
 ```bash
-# Networks used by this project that are not currently included by default by
-# eth-brownie install. These are specified in `brownie-config.yml`
-brownie networks import brownie-config.yml True
+brownie networks add Arbitrum arbitrum-main name=Mainnet host=https://arb1.arbitrum.io/rpc chainid=42161 explorer=https://api.arbiscan.io/api multicall2=0x5B5CFE992AdAC0C9D48E05854B2d91C73a003858
 
-# Check that the networks were declared:
+brownie networks add Arbitrum arbitrum-test name=Testnet host=https://rinkeby.arbitrum.io/rpc chainid=421611 explorer=https://testnet.arbiscan.io/api multicall2=0x5B5CFE992AdAC0C9D48E05854B2d91C73a003858
+
+brownie networks add development arbitrum-main-fork name="Arbitrum Mainnet Fork" cmd=ganache-cli host=http://127.0.0.1 fork=arbitrum-main evm_version=istanbul mnemonic=brownie gas_limit=12000000 port=8545 accounts=10
+
+# Check that the networks were succesfully declared:
 brownie networks list
 ```
